@@ -1,6 +1,6 @@
 # Strsim network
 
-[![Build Status](https://travis-ci.org/dweb0/strsim-network.svg?branch=master)](https://travis-ci.org/dweb0/strsim-network)
+[![Build Status](https://travis-ci.com/dweb0/strsim-network.svg?branch=master)](https://travis-ci.com/dweb0/strsim-network)
 [![Build status](https://ci.appveyor.com/api/projects/status/c0yglngi1lgc2sox?svg=true)](https://ci.appveyor.com/project/dweb0/strsim-network)
 [![GitHub release](https://img.shields.io/github/release/dweb0/strsim-network)](https://github.com/dweb0/strsim-network/releases)
 [![License](https://img.shields.io/badge/License-MIT/Apache--2.0-blue.svg)](https://github.com/dweb0/strsim-network/blob/master/LICENSE-APACHE)
