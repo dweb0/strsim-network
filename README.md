@@ -58,10 +58,10 @@ strsim-network my_strings.txt -a levenshtein -m 1 -M 1 > output.gml
 Via [cargo](https://www.rust-lang.org/tools/install)
 
 ```bash
-cargo install --git https://github.com/dweb0/strsim-network
+cargo install --git https://github.com/dweb0/strsim-network --features cli
 ```
 
-**[TODO: Pre-built binaries for Mac, Windows, and Linux here.](https://github.com/dweb0/strsim-network/releases)**
+**[Pre-built binaries for Mac, Windows, and Linux here.](https://github.com/dweb0/strsim-network/releases)**
 
 ## More examples
 
