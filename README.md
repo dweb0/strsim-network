@@ -73,6 +73,8 @@ strsim-network my_strings.txt -a jaro_winkler -m 0.8 -M 1.0
 
 ## Developers
 
+**Warning** This library is still in early development and is subject to major changes.
+
 This crate is setup as both a library and a command line tool. You can use the library
 by adding the following to your `Cargo.toml`.
 
