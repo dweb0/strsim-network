@@ -89,12 +89,14 @@ fn real_main(matches: &ArgMatches) -> Result<(), failure::Error> {
     let mut buffer = String::new();
     rdr.read_to_string(&mut buffer)
         .expect("Problem reading strings to buffer");
-    let strings: Vec<_> = buffer.lines().collect();
+    let mut strings: Vec<_> = buffer.lines().collect();
 
     // TODO: I'm sure theres better way to do this
     match algorithm {
         StrsimAlgorithm::Levenshtein => {
             let (min, max) = parse_min_and_max_usize(min_distance, max_distance)?;
+            //strings.sort_by(|a, b| a.cmp(b));
+            //let matrix = CooMatrix::from_strings_levenshtein_fst_progressbar(&strings, max as u32);
             let matrix =
                 CooMatrix::from_strings_with_progressbar(&strings, min, max, &strsim::levenshtein);
             save_matrix(matrix, &output_format, &strings)

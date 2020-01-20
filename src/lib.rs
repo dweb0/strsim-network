@@ -2,10 +2,44 @@ use rayon::prelude::*;
 use serde::Serialize;
 use std::io::Write;
 
+
 /// Coordinate matrix, which contains the coordinate (row, col) and
 /// value for each link
 #[derive(Debug)]
 pub struct CooMatrix<T>(Vec<Coordinate<T>>);
+
+impl CooMatrix<u32> {
+
+    #[cfg(feature = "cli")]
+    pub fn from_strings_levenshtein_fst_progressbar(
+        strings: &[&str],
+        max_dist: u32
+    ) -> Self
+    {
+
+        use fst::{IntoStreamer, Map};
+        use fst_levenshtein::Levenshtein;
+
+        let pb = indicatif::ProgressBar::new(strings.len() as u64);
+
+        let result: Vec<_> = (0..strings.len())
+            .into_par_iter()
+            .flat_map(|row| {
+                pb.inc(1);
+                let lev = Levenshtein::new(&strings[row], max_dist).unwrap();
+                let iter = strings.iter().take(row).enumerate().map(|(i, j)| (j, i as u64));
+                let map = Map::from_iter(iter).unwrap();
+                let stream = map.search(&lev).into_stream();
+                
+                stream.into_values().into_par_iter().map(move |col| Coordinate { row, col: col as usize, value: max_dist })
+            })
+            .collect();
+
+        pb.finish_and_clear();
+
+        Self(result)
+    }
+}
 
 impl<T> CooMatrix<T> {
     /// Find all combinations of strings within a specified
