@@ -13,7 +13,7 @@ license = "MIT/Apache-2.0"
 exclude = [
     "/scripts/*", "/data/*",
     "./.travis.yml", "./appveyor.yml",
-    "/ci/*", "/docs/*", "/examples/*"
+    "/ci/*", "/docs/*", "/examples/*", "/.vscode/*"
 ]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
