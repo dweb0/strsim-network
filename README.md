@@ -55,13 +55,26 @@ strsim-network my_strings.txt -a levenshtein -m 1 -M 1 > output.gml
 
 ## Installation
 
-Via [cargo](https://www.rust-lang.org/tools/install)
+Using macOS Homebrew or Linuxbrew
+
+```
+brew install dweb0/all/strsim-network
+```
+
+To upgrade to latest version
+
+```
+brew update
+brew upgrade strsim-network
+```
+
+Using cargo (for rust developers)
 
 ```bash
 cargo install --git https://github.com/dweb0/strsim-network --features cli
 ```
 
-**[Pre-built binaries for Mac, Windows, and Linux here.](https://github.com/dweb0/strsim-network/releases)**
+Or you can download a pre-built binary for Mac, Windows, or Linux on the [releases page](https://github.com/dweb0/strsim-network/releases).
 
 ## More examples
 
